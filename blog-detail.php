@@ -94,35 +94,10 @@
                 </article>
 
                 <!-- Social sharing -->
-                <div class="d-flex align-items-center gap-3 flex-wrap mt-5 pt-4 border-top">
-                    <span class="fw-bold text-teal font-outfit">Share this story:</span>
-                    <div class="social-share">
-                        <a href="#" class="share-btn fb" aria-label="Share on Facebook"><i
-                                class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="share-btn li" aria-label="Share on LinkedIn"><i
-                                class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#" class="share-btn tw" aria-label="Share on X"><i
-                                class="fa-brands fa-x-twitter"></i></a>
-                        <a href="#" class="share-btn em" aria-label="Share by Email"><i
-                                class="fa-solid fa-envelope"></i></a>
-                    </div>
-                </div>
+               
 
                 <!-- Author box -->
-                <div class="author-box" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1594744803329-e58b31de215f?auto=format&fit=crop&w=200&q=80"
-                        alt="Rachel Green">
-                    <div>
-                        <span class="text-coral fw-bold small text-uppercase tracking-wider">Written by</span>
-                        <h4 class="font-outfit text-teal mb-2">Rachel Green</h4>
-                        <p class="text-muted small mb-2">Head of Care at Maya. Accredited social worker passionate
-                            about person-centred support and storytelling that drives change.</p>
-                        <div class="d-flex gap-2">
-                            <a href="#" class="team-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#" class="team-social-link"><i class="fa-solid fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
+              
             </div>
         </div>
     </div>
@@ -164,75 +139,6 @@
     </div>
 </section>
 
-<!-- 4. Newsletter + Comments -->
-<section>
-    <div class="container">
-        <div class="newsletter-band mb-5" data-aos="zoom-in">
-            <h3 class="font-outfit mb-2">Enjoyed this story?</h3>
-            <p class="text-white-50 mb-0">Subscribe for more stories of impact and independence.</p>
-            <form id="newsletterForm" class="input-group">
-                <input type="email" class="form-control" placeholder="Enter your email address" required
-                    aria-label="Email Address">
-                <button class="btn btn-coral text-white" type="submit">Subscribe</button>
-            </form>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <h3 class="font-outfit text-teal mb-4">Comments (2)</h3>
-
-                <div class="comment-item">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80"
-                        alt="Commenter">
-                    <div class="comment-bubble">
-                        <div class="d-flex justify-content-between align-items-center mb-1">
-                            <h6 class="font-outfit text-teal m-0">Sarah Jenkins</h6>
-                            <span class="small text-muted">2 days ago</span>
-                        </div>
-                        <p class="text-muted small m-0">This brought tears to my eyes. So proud of Marcus and the whole
-                            Maya team. Thank you for everything you do.</p>
-                    </div>
-                </div>
-                <div class="comment-item">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
-                        alt="Commenter">
-                    <div class="comment-bubble">
-                        <div class="d-flex justify-content-between align-items-center mb-1">
-                            <h6 class="font-outfit text-teal m-0">David Chen</h6>
-                            <span class="small text-muted">5 days ago</span>
-                        </div>
-                        <p class="text-muted small m-0">Stories like this are exactly why person-centred care matters.
-                            Inspiring read!</p>
-                    </div>
-                </div>
-
-                <!-- Comment form -->
-                <div class="contact-form-wrap mt-4">
-                    <h5 class="font-outfit text-teal mb-3">Leave a Comment</h5>
-                    <form id="commentForm">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Your Name" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
-                            </div>
-                            <div class="col-12">
-                                <textarea class="form-control" rows="4" placeholder="Your Comment" required></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-teal rounded-pill fw-bold px-4">Post Comment</button>
-                            </div>
-                        </div>
-                        <div class="form-success" id="commentSuccess">
-                            <i class="fa-solid fa-circle-check me-2"></i>Thanks! Your comment is awaiting moderation.
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

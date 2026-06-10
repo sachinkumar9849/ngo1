@@ -1,5 +1,83 @@
 <?php include "include/header.php" ?>
 
+<style>
+/* ===== Application Modal ===== */
+.apply-modal .modal-content { box-shadow: 0 30px 80px rgba(0, 0, 0, .25); }
+.apply-modal-head {
+    position: relative;
+    padding: 2rem 2.5rem 1.75rem;
+    color: #fff;
+    background: linear-gradient(135deg, var(--secondary, #0e7c7b) 0%, var(--primary, #0a5c5b) 100%);
+}
+.apply-modal-head h3 { font-weight: 700; }
+.apply-modal-tag {
+    display: inline-block;
+    font-size: .72rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: rgba(255, 255, 255, .16);
+    padding: .35rem .9rem;
+    border-radius: 50px;
+    margin-bottom: .85rem;
+}
+.apply-close-btn {
+    position: absolute;
+    top: 1.1rem;
+    right: 1.25rem;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .18);
+    color: #fff;
+    font-size: 1rem;
+    transition: background .2s, transform .2s;
+}
+.apply-close-btn:hover { background: rgba(255, 255, 255, .32); transform: rotate(90deg); }
+.apply-label { font-weight: 600; font-size: .85rem; color: #344; margin-bottom: .35rem; }
+.apply-input-group .input-group-text {
+    background: #f6f9f9;
+    border-right: 0;
+    color: var(--secondary, #0e7c7b);
+}
+.apply-input-group .form-control,
+.apply-input-group .form-select { border-left: 0; padding-left: .25rem; }
+.apply-input-group .form-control:focus,
+.apply-input-group .form-select:focus { box-shadow: none; border-color: #ced4da; }
+.apply-input-group:focus-within { box-shadow: 0 0 0 .2rem rgba(14, 124, 123, .15); border-radius: .4rem; }
+.apply-file-drop {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px dashed #cdd;
+    border-radius: .6rem;
+    background: #f8fbfb;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+}
+.apply-file-drop:hover { border-color: var(--secondary, #0e7c7b); background: #f0f7f7; }
+.apply-file-drop i { font-size: 1.5rem; color: var(--secondary, #0e7c7b); }
+.apply-file-text { display: flex; flex-direction: column; font-weight: 600; color: #344; }
+.apply-file-text small { font-weight: 400; }
+.apply-file-drop input[type=file] { display: none; }
+.apply-file-drop.has-file { border-color: var(--secondary, #0e7c7b); border-style: solid; background: #eef7f7; }
+.apply-success-icon {
+    width: 76px;
+    height: 76px;
+    margin: 1rem auto 0;
+    border-radius: 50%;
+    background: rgba(14, 124, 123, .12);
+    color: var(--secondary, #0e7c7b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+</style>
+
 <!-- 1. Hero -->
 <section class="page-hero"
     style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=85');">
@@ -61,63 +139,6 @@
     </div>
 </section>
 
-<!-- 3. Company Culture Gallery -->
-<section class="bg-light-section">
-    <div class="container text-center">
-        <span class="section-tag" data-aos="fade-up">Life at Maya</span>
-        <h2 class="section-title text-teal" data-aos="fade-up" data-aos-delay="100">Our Culture in Action</h2>
-        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
-            Team events, community days, and the everyday moments that make this a great place to work.
-        </p>
-        <div class="gallery-grid text-start" data-aos="fade-up" data-aos-delay="300">
-            <div class="gallery-item tall">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
-                    alt="Team collaboration" class="gallery-img">
-                <div class="gallery-hover-overlay">
-                    <div class="text-center p-3"><i class="fa-solid fa-magnifying-glass-plus fs-3 mb-2"></i>
-                        <h5 class="font-outfit m-0">Team Collaboration</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=600&q=80"
-                    alt="Team meeting" class="gallery-img">
-                <div class="gallery-hover-overlay">
-                    <div class="text-center p-3"><i class="fa-solid fa-magnifying-glass-plus fs-3 mb-2"></i>
-                        <h5 class="font-outfit m-0">Weekly Huddles</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80"
-                    alt="Community event" class="gallery-img">
-                <div class="gallery-hover-overlay">
-                    <div class="text-center p-3"><i class="fa-solid fa-magnifying-glass-plus fs-3 mb-2"></i>
-                        <h5 class="font-outfit m-0">Community Days</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80"
-                    alt="Training" class="gallery-img">
-                <div class="gallery-hover-overlay">
-                    <div class="text-center p-3"><i class="fa-solid fa-magnifying-glass-plus fs-3 mb-2"></i>
-                        <h5 class="font-outfit m-0">Ongoing Training</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80"
-                    alt="Celebration" class="gallery-img">
-                <div class="gallery-hover-overlay">
-                    <div class="text-center p-3"><i class="fa-solid fa-magnifying-glass-plus fs-3 mb-2"></i>
-                        <h5 class="font-outfit m-0">Celebrating Wins</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- 4. Open Positions -->
 <section id="open-positions">
@@ -176,8 +197,9 @@
                     </div>
                     <p class="text-muted small mb-3">Join our team and make a genuine difference in the lives of the
                         people and communities we support.</p>
-                    <a href="#apply" class="btn btn-outline-teal rounded-pill btn-sm px-4 fw-bold">Apply Now <i
-                            class="fa-solid fa-arrow-right ms-1"></i></a>
+                    <button type="button" class="btn btn-outline-teal rounded-pill btn-sm px-4 fw-bold apply-btn"
+                        data-job="<?= htmlspecialchars($j[0]) ?>">Apply Now <i
+                            class="fa-solid fa-arrow-right ms-1"></i></button>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -187,105 +209,6 @@
     </div>
 </section>
 
-<!-- 5. Benefits & Perks -->
-<section class="bg-light-section">
-    <div class="container text-center">
-        <span class="section-tag" data-aos="fade-up">Perks</span>
-        <h2 class="section-title text-teal" data-aos="fade-up" data-aos-delay="100">Benefits &amp; Perks</h2>
-        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
-            We look after the people who look after others.
-        </p>
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-card">
-                    <div class="feature-icon-wrapper"><i class="fa-solid fa-heart-pulse"></i></div>
-                    <h4 class="text-teal font-outfit mb-3" style="font-size:1.2rem;">Health Benefits</h4>
-                    <p class="text-muted mb-0 small">Wellbeing programs and access to employee assistance support.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-card">
-                    <div class="feature-icon-wrapper"><i class="fa-solid fa-umbrella-beach"></i></div>
-                    <h4 class="text-teal font-outfit mb-3" style="font-size:1.2rem;">Paid Leave</h4>
-                    <p class="text-muted mb-0 small">Generous annual, personal, and family leave entitlements.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="feature-card">
-                    <div class="feature-icon-wrapper"><i class="fa-solid fa-graduation-cap"></i></div>
-                    <h4 class="text-teal font-outfit mb-3" style="font-size:1.2rem;">Training Programs</h4>
-                    <p class="text-muted mb-0 small">Fully funded certifications and continuous professional
-                        development.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="feature-card">
-                    <div class="feature-icon-wrapper"><i class="fa-solid fa-calendar-check"></i></div>
-                    <h4 class="text-teal font-outfit mb-3" style="font-size:1.2rem;">Flexible Schedule</h4>
-                    <p class="text-muted mb-0 small">Work patterns that fit around your life and commitments.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 6. Employee Testimonials -->
-<section id="employee-stories">
-    <div class="container text-center">
-        <span class="section-tag" data-aos="fade-up">Our People</span>
-        <h2 class="section-title text-teal" data-aos="fade-up" data-aos-delay="100">Hear From the Team</h2>
-        <div class="swiper stories-swiper pb-5" data-aos="fade-up" data-aos-delay="200">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="testimonial-card text-start">
-                        <i class="fa-solid fa-quote-right quote-icon"></i>
-                        <p class="text-muted mb-4">"I've never felt more valued at work. The training and support here
-                            helped me grow from a casual support worker into a coordinator in two years."</p>
-                        <div class="d-flex align-items-center gap-3">
-                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=150&q=80"
-                                alt="Team member" class="client-avatar">
-                            <div>
-                                <h5 class="font-outfit text-teal m-0" style="font-size:1.1rem;">Aisha Khan</h5>
-                                <span class="small text-muted">Support Coordinator</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="testimonial-card text-start">
-                        <i class="fa-solid fa-quote-right quote-icon"></i>
-                        <p class="text-muted mb-4">"The culture is genuinely caring &mdash; not just toward clients, but
-                            toward each other. I look forward to coming to work."</p>
-                        <div class="d-flex align-items-center gap-3">
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80"
-                                alt="Team member" class="client-avatar">
-                            <div>
-                                <h5 class="font-outfit text-teal m-0" style="font-size:1.1rem;">Tom Reilly</h5>
-                                <span class="small text-muted">Disability Support Worker</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="testimonial-card text-start">
-                        <i class="fa-solid fa-quote-right quote-icon"></i>
-                        <p class="text-muted mb-4">"Flexible rosters mean I can be there for my family and still do work
-                            that matters. That balance is rare and I don't take it for granted."</p>
-                        <div class="d-flex align-items-center gap-3">
-                            <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=150&q=80"
-                                alt="Team member" class="client-avatar">
-                            <div>
-                                <h5 class="font-outfit text-teal m-0" style="font-size:1.1rem;">Maria Lopez</h5>
-                                <span class="small text-muted">Community Nurse</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </div>
-</section>
 
 <!-- 7. Recruitment Process -->
 <section class="bg-light-section">
@@ -357,25 +280,139 @@
     </div>
 </section>
 
-<!-- 9. CTA / Apply -->
-<section id="apply" class="cta-gradient-section text-white text-center">
-    <div class="container" data-aos="zoom-in">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <h2 class="font-outfit fw-black mb-3 text-white" style="font-size: 2.8rem; line-height: 1.2;">Ready to
-                    Make a Difference?</h2>
-                <p class="lead mb-5 text-white-50">Send us your resume and we'll be in touch about roles that match your
-                    skills and passion.</p>
-                <div class="d-flex flex-wrap justify-content-center gap-3">
-                    <a href="contact.php" class="btn btn-coral text-white px-5 py-3 rounded-pill fw-bold fs-6"><i
-                            class="fa-solid fa-cloud-arrow-up me-2"></i>Upload Resume</a>
-                    <a href="#open-positions" class="btn btn-outline-light px-5 py-3 rounded-pill fw-bold fs-6">Browse
-                        Positions</a>
+
+<!-- Application Modal -->
+<div class="modal fade apply-modal" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content border-0 rounded-4 overflow-hidden">
+            <!-- Header -->
+            <div class="apply-modal-head">
+                <button type="button" class="apply-close-btn" data-bs-dismiss="modal" aria-label="Close"><i
+                        class="fa-solid fa-xmark"></i></button>
+                <span class="apply-modal-tag"><i class="fa-solid fa-briefcase me-2"></i>Job Application</span>
+                <h3 class="font-outfit mb-1" id="applyModalLabel">Apply for <span id="applyJobTitle">this role</span>
+                </h3>
+                <p class="mb-0 small opacity-75">Takes about 3 minutes. Fields marked <span class="text-warning">*</span>
+                    are required.</p>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body p-4 p-md-5">
+                <form id="applyForm" novalidate>
+                    <input type="hidden" name="position" id="applyPositionField">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label apply-label">Full Name <span class="text-danger">*</span></label>
+                            <div class="input-group apply-input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                                <input type="text" name="name" class="form-control" placeholder="Jane Doe" required>
+                            </div>
+                            <div class="invalid-feedback">Please enter your full name.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label apply-label">Email Address <span
+                                    class="text-danger">*</span></label>
+                            <div class="input-group apply-input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                                <input type="email" name="email" class="form-control" placeholder="jane@email.com"
+                                    required>
+                            </div>
+                            <div class="invalid-feedback">Please enter a valid email.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label apply-label">Phone <span class="text-danger">*</span></label>
+                            <div class="input-group apply-input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                                <input type="tel" name="phone" class="form-control" placeholder="0400 000 000" required>
+                            </div>
+                            <div class="invalid-feedback">Please enter your phone number.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label apply-label">Position</label>
+                            <div class="input-group apply-input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-bullseye"></i></span>
+                                <input type="text" name="position_display" id="applyPositionDisplay"
+                                    class="form-control bg-light" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label apply-label">Years of Experience</label>
+                            <div class="input-group apply-input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-user-clock"></i></span>
+                                <select name="experience" class="form-select">
+                                    <option value="0-1">Less than 1 year</option>
+                                    <option value="1-3">1 &ndash; 3 years</option>
+                                    <option value="3-5">3 &ndash; 5 years</option>
+                                    <option value="5+">5+ years</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label apply-label">Availability</label>
+                            <div class="input-group apply-input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-calendar-check"></i></span>
+                                <select name="availability" class="form-select">
+                                    <option value="full-time">Full-time</option>
+                                    <option value="part-time">Part-time</option>
+                                    <option value="casual">Casual</option>
+                                    <option value="immediate">Available immediately</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label apply-label">Resume / CV <span class="text-danger">*</span></label>
+                            <label class="apply-file-drop" for="applyResume">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <span class="apply-file-text">Click to upload <small class="text-muted">PDF, DOC, DOCX
+                                        &middot; max 5MB</small></span>
+                                <input type="file" name="resume" id="applyResume" accept=".pdf,.doc,.docx" required>
+                            </label>
+                            <div class="invalid-feedback d-block d-none" id="resumeError">Please attach your resume.
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label apply-label">Cover Note <small
+                                    class="text-muted fw-normal">(optional)</small></label>
+                            <textarea name="message" class="form-control" rows="3"
+                                placeholder="Tell us briefly why you'd be a great fit..."></textarea>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="applyConsent" required>
+                                <label class="form-check-label small text-muted" for="applyConsent">
+                                    I agree to the processing of my personal data in line with the
+                                    <a href="#" class="text-teal">Privacy Policy</a>. <span class="text-danger">*</span>
+                                </label>
+                                <div class="invalid-feedback">You must agree before submitting.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2 justify-content-end mt-4">
+                        <button type="button" class="btn btn-light rounded-pill px-4 fw-bold"
+                            data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-teal rounded-pill px-5 fw-bold">
+                            <span class="apply-submit-text"><i class="fa-solid fa-paper-plane me-2"></i>Submit
+                                Application</span>
+                            <span class="apply-submit-loading d-none"><span
+                                    class="spinner-border spinner-border-sm me-2"></span>Sending...</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success state -->
+                <div class="apply-success text-center d-none">
+                    <div class="apply-success-icon"><i class="fa-solid fa-check"></i></div>
+                    <h3 class="font-outfit text-teal mt-3">Application Received!</h3>
+                    <p class="text-muted">Thanks for applying for <strong id="applySuccessJob"></strong>. Our team will
+                        review your details and get back to you within 5 business days.</p>
+                    <button type="button" class="btn btn-teal rounded-pill px-5 fw-bold mt-2"
+                        data-bs-dismiss="modal">Done</button>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- Lightbox Modal -->
 <div class="modal fade lightbox-modal" id="lightboxModal" tabindex="-1" aria-hidden="true">
@@ -412,6 +449,79 @@
         if (search && filter) {
             search.addEventListener('input', applyFilter);
             filter.addEventListener('change', applyFilter);
+        }
+
+        // ===== Application modal =====
+        const applyModalEl = document.getElementById('applyModal');
+        if (applyModalEl) {
+            const applyModal = new bootstrap.Modal(applyModalEl);
+            const form = document.getElementById('applyForm');
+            const titleSpan = document.getElementById('applyJobTitle');
+            const posDisplay = document.getElementById('applyPositionDisplay');
+            const posField = document.getElementById('applyPositionField');
+            const successJob = document.getElementById('applySuccessJob');
+            const successBox = applyModalEl.querySelector('.apply-success');
+            const submitText = applyModalEl.querySelector('.apply-submit-text');
+            const submitLoading = applyModalEl.querySelector('.apply-submit-loading');
+            const fileInput = document.getElementById('applyResume');
+            const fileDrop = applyModalEl.querySelector('.apply-file-drop');
+            const fileText = applyModalEl.querySelector('.apply-file-text');
+            const resumeError = document.getElementById('resumeError');
+
+            // Open + prefill from any Apply Now button
+            document.querySelectorAll('.apply-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const job = btn.dataset.job || 'this role';
+                    titleSpan.textContent = job;
+                    posDisplay.value = job;
+                    posField.value = job;
+                    applyModal.show();
+                });
+            });
+
+            // File chosen feedback
+            fileInput.addEventListener('change', () => {
+                if (fileInput.files.length) {
+                    fileDrop.classList.add('has-file');
+                    fileText.innerHTML = fileInput.files[0].name +
+                        '<small class="text-muted">Click to change</small>';
+                    resumeError.classList.add('d-none');
+                }
+            });
+
+            // Submit
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                let ok = form.checkValidity();
+                form.classList.add('was-validated');
+                if (!fileInput.files.length) {
+                    resumeError.classList.remove('d-none');
+                    ok = false;
+                }
+                if (!ok) return;
+
+                submitText.classList.add('d-none');
+                submitLoading.classList.remove('d-none');
+
+                // Simulate sending (replace with real fetch() to your endpoint)
+                setTimeout(() => {
+                    submitText.classList.remove('d-none');
+                    submitLoading.classList.add('d-none');
+                    successJob.textContent = posField.value;
+                    form.classList.add('d-none');
+                    successBox.classList.remove('d-none');
+                }, 1200);
+            });
+
+            // Reset when closed
+            applyModalEl.addEventListener('hidden.bs.modal', () => {
+                form.reset();
+                form.classList.remove('was-validated', 'd-none');
+                successBox.classList.add('d-none');
+                fileDrop.classList.remove('has-file');
+                fileText.innerHTML = 'Click to upload <small class="text-muted">PDF, DOC, DOCX &middot; max 5MB</small>';
+                resumeError.classList.add('d-none');
+            });
         }
     });
 </script>

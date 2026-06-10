@@ -153,20 +153,5 @@
     </div>
 </section>
 
-<!-- 5. Newsletter -->
-<section class="pb-0">
-    <div class="container">
-        <div class="newsletter-band" data-aos="zoom-in">
-            <span class="section-tag">Stay Updated</span>
-            <h3 class="font-outfit mb-2">Never Miss a Story</h3>
-            <p class="text-white-50 mb-0">Get our latest articles, events, and NDIS guides delivered to your inbox.</p>
-            <form id="newsletterForm" class="input-group">
-                <input type="email" class="form-control" placeholder="Enter your email address" required
-                    aria-label="Email Address">
-                <button class="btn btn-coral text-white" type="submit">Subscribe</button>
-            </form>
-        </div>
-    </div>
-</section>
 
 <?php include "include/footer.php" ?>

@@ -99,11 +99,9 @@
             </ul>
           </li>
 
+         
           <li class="nav-item">
-            <a class="nav-link fw-medium" href="index.php#news">News</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link fw-medium" href="blog.php">Blog</a>
+            <a class="nav-link fw-medium" href="blog.php">News & Blog</a>
           </li>
           <li class="nav-item">
             <a class="nav-link fw-medium" href="career.php">Career</a>
