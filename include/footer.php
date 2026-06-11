@@ -4,10 +4,12 @@
         <div class="row g-4">
             <!-- Col 1: About & Logo -->
             <div class="col-lg-4 col-md-6">
-                <div class="mb-4">
+                <div class="mb-3">
                     <img src="image/logo.jpeg" alt="Maya Disability &amp; Community Services"
                         class="footer-logo" />
                 </div>
+                <p class="footer-slogan font-outfit text-coral fw-bold mb-3"><i
+                        class="fa-solid fa-heart me-2"></i>Delivering Service with Love.</p>
                 <p class="small text-white-50 mb-4">
                     Empowering lives through client-centered care. We provide disability support, supported living, and
                     mental health programs designed to foster complete independence.
@@ -37,9 +39,9 @@
                 <h4 class="footer-title font-outfit">Company</h4>
                 <ul class="footer-links small">
                     <li><a href="about.php">About Our NGO</a></li>
-                    <li><a href="index.php#why-choose-us">Why Choose Us</a></li>
-                    <li><a href="index.php#programs">Active Programs</a></li>
-                    <li><a href="index.php#stories">Success Stories</a></li>
+                    <li><a href="csr.php">CSR</a></li>
+                    <li><a href="feedback.php">Compliments &amp; Complaints</a></li>
+                    <li><a href="career.php">Careers</a></li>
                     <li><a href="index.php#news">News &amp; Articles</a></li>
                 </ul>
             </div>

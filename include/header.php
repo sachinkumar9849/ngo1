@@ -76,6 +76,10 @@
                     class="fa-solid fa-circle-info me-2"></i>Introduction</a></li>
               <li><a class="dropdown-item" href="about.php#leadership"><i
                     class="fa-solid fa-users me-2"></i>Team</a></li>
+              <li><a class="dropdown-item" href="csr.php"><i
+                    class="fa-solid fa-hand-holding-heart me-2"></i>CSR</a></li>
+              <li><a class="dropdown-item" href="feedback.php"><i
+                    class="fa-solid fa-comment-dots me-2"></i>Compliments &amp; Complaints</a></li>
             </ul>
           </li>
 

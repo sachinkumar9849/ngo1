@@ -48,6 +48,10 @@
                     programs &mdash; but our mission has never changed. We exist to help people write the next, brighter
                     chapter of their own story.
                 </p>
+                <p class="text-body mb-4">
+                    At Maya, we believe in <strong class="text-coral">Delivering Service with Love</strong>, ensuring
+                    every individual receives compassionate, respectful, and personalized support.
+                </p>
                 <div class="about-timeline mt-3">
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>

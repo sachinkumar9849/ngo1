@@ -1,5 +1,60 @@
 <?php include "include/header.php" ?>
 
+<style>
+/* ===== Service Detail page-specific ===== */
+/* Horizontal timeline (How it works) */
+.svc-timeline { position: relative; margin-top: 2.5rem; }
+.svc-timeline .row { position: relative; }
+.svc-timeline::before {
+    content: ''; position: absolute; top: 38px; left: 8%; right: 8%; height: 3px;
+    background: repeating-linear-gradient(90deg, var(--primary-light) 0 14px, transparent 14px 26px);
+    z-index: 0;
+}
+.svc-step { position: relative; z-index: 1; text-align: center; padding: 0 .5rem; }
+.svc-step-num {
+    width: 76px; height: 76px; margin: 0 auto 18px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: #fff; border: 3px solid var(--accent); color: var(--primary);
+    font-family: var(--font-outfit); font-weight: 700; font-size: 1.6rem;
+    box-shadow: var(--shadow-sm); transition: var(--transition-smooth);
+    position: relative;
+}
+.svc-step-num span.pill {
+    position: absolute; top: -8px; right: -8px; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--secondary); color: #fff; font-size: .8rem; display: flex; align-items: center; justify-content: center;
+}
+.svc-step:hover .svc-step-num { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-6px); }
+.svc-step h5 { font-family: var(--font-outfit); color: var(--primary); margin-bottom: 8px; }
+.svc-step p { color: var(--text-muted); font-size: .9rem; margin: 0; }
+@media (max-width: 991px) {
+    .svc-timeline::before { display: none; }
+    .svc-timeline .svc-step { display: flex; text-align: left; gap: 18px; padding: 0; margin-bottom: 1.5rem; }
+    .svc-timeline .svc-step-num { margin: 0; flex: 0 0 64px; width: 64px; height: 64px; font-size: 1.3rem; }
+}
+/* Eligibility checklist */
+.elig-card { background: #fff; border: 1px solid rgba(173,23,106,.08); border-radius: var(--radius-lg); padding: 2rem; height: 100%; box-shadow: var(--shadow-sm); }
+.elig-list { list-style: none; padding: 0; margin: 0; }
+.elig-list li { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-bottom: 1px dashed rgba(173,23,106,.10); }
+.elig-list li:last-child { border-bottom: 0; }
+.elig-list .ic { flex: 0 0 28px; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: .8rem; margin-top: 2px; }
+.elig-list .ic.cross { background: #fdeaea; color: #d9534f; }
+/* Enquiry form */
+.enquiry-card { background: #fff; border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: 0 25px 70px rgba(125,15,76,.10); border: 1px solid rgba(173,23,106,.06); }
+.enq-input-group .input-group-text { background: #faf3f8; border-right: 0; color: var(--primary); }
+.enq-input-group .form-control { border-left: 0; padding-left: .25rem; }
+.enq-input-group .form-control:focus { box-shadow: none; border-color: #ced4da; }
+.enq-input-group:focus-within { box-shadow: 0 0 0 .2rem rgba(173,23,106,.12); border-radius: .45rem; }
+.enq-success-icon { width: 70px; height: 70px; margin: 0 auto; border-radius: 50%; background: var(--accent); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; }
+/* FAQ accordion */
+.faq-accordion .accordion-item { border: 1px solid rgba(173,23,106,.10); border-radius: 14px !important; margin-bottom: 14px; overflow: hidden; }
+.faq-accordion .accordion-button { font-family: var(--font-outfit); font-weight: 600; color: var(--primary); background: #fff; padding: 1.1rem 1.25rem; }
+.faq-accordion .accordion-button:not(.collapsed) { background: var(--accent); color: var(--primary); box-shadow: none; }
+.faq-accordion .accordion-button:focus { box-shadow: none; }
+.faq-accordion .accordion-button::after { background-image: none; content: '\2b'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: .9rem; color: var(--primary); transform: none; width: auto; height: auto; }
+.faq-accordion .accordion-button:not(.collapsed)::after { content: '\f068'; }
+.faq-accordion .accordion-body { color: var(--text-muted); font-size: .95rem; }
+</style>
+
 <!-- 1. Hero -->
 <section class="page-hero"
     style="background-image: url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1920&q=85');">
@@ -17,8 +72,12 @@
             Live the way you choose, with just the right level of support to help you thrive at home and in your
             community.
         </p>
-        <a href="#consult" class="btn btn-coral text-white px-5 py-3 rounded-pill fw-bold mt-2 btn-support"
-            data-aos="fade-up" data-aos-delay="300">Book a Free Consultation</a>
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-2" data-aos="fade-up" data-aos-delay="300">
+            <a href="#enquiry" class="btn btn-coral text-white px-5 py-3 rounded-pill fw-bold"><i
+                    class="fa-solid fa-hand-holding-heart me-2"></i>Get Support</a>
+            <a href="contact.php" class="btn btn-outline-light px-5 py-3 rounded-pill fw-bold"><i
+                    class="fa-solid fa-phone me-2"></i>Contact Us</a>
+        </div>
     </div>
     <div class="page-hero-divider">
         <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,21 +101,29 @@
                 <h2 class="story-title font-outfit">Independence, Supported Your Way</h2>
                 <p class="story-lead">Supported Independent Living (SIL) helps you build the skills and confidence to
                     live as independently as possible &mdash; whether in your own home or shared accommodation.</p>
-                <p class="text-muted mb-4">Our support workers assist with everyday tasks, personal care, and community
-                    access, all tailored around your goals. You stay in control; we provide the backup.</p>
+                <p class="text-muted mb-4">Designed for people living with disability who want greater autonomy, SIL
+                    pairs you with a support team focused on your personal goals &mdash; building daily living skills,
+                    staying healthy, and connecting with your community.</p>
                 <ul class="story-feature-list">
                     <li>
                         <span class="feat-icon"><i class="fa-solid fa-check"></i></span>
                         <div>
-                            <p class="feat-title">24/7 or scheduled support</p>
-                            <p class="feat-desc">Flexible staffing that scales to exactly what you need.</p>
+                            <p class="feat-title">Who it's for</p>
+                            <p class="feat-desc">Adults with disability seeking more independence at home and beyond.</p>
                         </div>
                     </li>
                     <li>
                         <span class="feat-icon"><i class="fa-solid fa-check"></i></span>
                         <div>
-                            <p class="feat-title">NDIS-funded &amp; fully managed</p>
-                            <p class="feat-desc">We help maximise your funding and handle the paperwork.</p>
+                            <p class="feat-title">Key objective</p>
+                            <p class="feat-desc">Build confidence and life skills with the right level of backup.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="feat-icon"><i class="fa-solid fa-check"></i></span>
+                        <div>
+                            <p class="feat-title">The outcome</p>
+                            <p class="feat-desc">A safe, supported life lived on your own terms.</p>
                         </div>
                     </li>
                 </ul>
@@ -65,28 +132,31 @@
     </div>
 </section>
 
-<!-- 3. Key Features -->
-<section class="bg-light-section">
+<!-- 3. Key Benefits -->
+<section class="bg-light-section" id="benefits">
     <div class="container text-center">
-        <span class="section-tag" data-aos="fade-up">What's Included</span>
-        <h2 class="section-title text-teal" data-aos="fade-up" data-aos-delay="100">Key Features</h2>
+        <span class="section-tag" data-aos="fade-up">Why It Helps</span>
+        <h2 class="section-title text-teal" data-aos="fade-up" data-aos-delay="100">Key Benefits</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+            Thoughtful, person-centred support designed around your life &mdash; not the other way around.
+        </p>
         <div class="row g-4">
             <?php
-            $feats = [
-                ['fa-house-chimney-user', 'Daily Living Support', 'Help with cooking, cleaning, budgeting, and household routines.'],
-                ['fa-hand-holding-medical', 'Personal Care', 'Respectful assistance with hygiene, grooming, and wellbeing.'],
-                ['fa-people-roof', 'Community Access', 'Support to get out, stay social, and pursue your interests.'],
-                ['fa-pills', 'Medication Management', 'Reminders and assistance to stay on top of your health.'],
-                ['fa-shield-heart', 'Skill Building', 'Coaching that grows your confidence and independence over time.'],
-                ['fa-headset', 'On-call Backup', 'Trained staff available whenever you need reassurance.'],
+            $benefits = [
+                ['fa-user-gear', 'Personalized Support', 'A plan shaped entirely around your goals, routines, and preferences.'],
+                ['fa-user-nurse', 'Experienced Professionals', 'Trained, vetted, and genuinely caring support workers.'],
+                ['fa-sliders', 'Flexible Care Plans', 'Scale support up or down as your needs change over time.'],
+                ['fa-people-roof', 'Community Engagement', 'Stay social, active, and connected to the things you love.'],
+                ['fa-headset', 'Ongoing Assistance', 'Reliable, on-call backup whenever you need reassurance.'],
+                ['fa-bullseye', 'Goal-Focused Outcomes', 'Every step is measured against the progress that matters to you.'],
             ];
             $d = 0;
-            foreach ($feats as $f): $d += 80; ?>
+            foreach ($benefits as $b): $d += 80; ?>
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="<?= $d ?>">
-                <div class="feature-card text-start">
-                    <div class="feature-icon-wrapper"><i class="fa-solid <?= $f[0] ?>"></i></div>
-                    <h4 class="text-teal font-outfit mb-3" style="font-size:1.2rem;"><?= $f[1] ?></h4>
-                    <p class="text-muted mb-0"><?= $f[2] ?></p>
+                <div class="feature-card text-start h-100">
+                    <div class="feature-icon-wrapper"><i class="fa-solid <?= $b[0] ?>"></i></div>
+                    <h4 class="text-teal font-outfit mb-3" style="font-size:1.2rem;"><?= $b[1] ?></h4>
+                    <p class="text-muted mb-0"><?= $b[2] ?></p>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -94,53 +164,48 @@
     </div>
 </section>
 
-<!-- 4. How It Works -->
-<section id="how-it-works">
+<!-- 6. Why Choose This Service -->
+<section id="why-choose">
     <div class="container text-center">
-        <span class="section-tag" data-aos="fade-up">The Process</span>
-        <h2 class="section-title text-teal" data-aos="fade-up" data-aos-delay="100">How It Works</h2>
+        <span class="section-tag" data-aos="fade-up">The Maya Difference</span>
+        <h2 class="section-title text-teal" data-aos="fade-up" data-aos-delay="100">Why Choose This Service</h2>
         <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
-            Getting started is simple. Here's what to expect.
+            Trusted by hundreds of participants and families across the region.
         </p>
-        <div class="row g-4 mt-2">
-            <?php
-            $steps = [
-                ['1', 'fa-comments', 'Consultation', 'We listen to your goals, needs, and preferences.'],
-                ['2', 'fa-clipboard-list', 'Planning', 'We design a personalised support plan around you.'],
-                ['3', 'fa-hands-holding-circle', 'Support Delivery', 'Your matched team begins delivering care.'],
-                ['4', 'fa-chart-line', 'Progress Review', 'We check in regularly and adapt as you grow.'],
-            ];
-            $d = 0;
-            foreach ($steps as $s): $d += 100; ?>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="<?= $d ?>">
-                <div class="process-step">
-                    <div class="step-num"><?= $s[0] ?></div>
-                    <div class="step-icon"><i class="fa-solid <?= $s[1] ?>"></i></div>
-                    <h5 class="font-outfit"><?= $s[2] ?></h5>
-                    <p class="text-muted small m-0"><?= $s[3] ?></p>
+        <div class="row g-4 mb-5">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card text-start h-100">
+                    <div class="feature-icon-wrapper"><i class="fa-solid fa-award"></i></div>
+                    <h4 class="text-teal font-outfit mb-3" style="font-size:1.2rem;">Registered NDIS Provider</h4>
+                    <p class="text-muted mb-0">Fully accredited and compliant, so you can have complete peace of mind.</p>
                 </div>
             </div>
-            <?php endforeach; ?>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card text-start h-100">
+                    <div class="feature-icon-wrapper"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h4 class="text-teal font-outfit mb-3" style="font-size:1.2rem;">Person-Centred Care</h4>
+                    <p class="text-muted mb-0">Your voice leads every decision. We support, you stay in control.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card text-start h-100">
+                    <div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div>
+                    <h4 class="text-teal font-outfit mb-3" style="font-size:1.2rem;">Always Available</h4>
+                    <p class="text-muted mb-0">Round-the-clock support and a team that genuinely shows up for you.</p>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
-
-<!-- 5. Benefits / Outcomes -->
-<section class="bg-light-section">
-    <div class="container text-center">
-        <span class="section-tag" data-aos="fade-up">Outcomes</span>
-        <h2 class="section-title text-teal" data-aos="fade-up" data-aos-delay="100">The Difference It Makes</h2>
         <div class="row g-4">
             <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="about-stat-card">
-                    <div class="stat-num font-outfit">95%</div>
+                    <div class="stat-num font-outfit"><span class="counter-val" data-target="95">0</span>%</div>
                     <div class="stat-label">Report greater confidence</div>
                 </div>
             </div>
             <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="about-stat-card">
-                    <div class="stat-num font-outfit">3x</div>
-                    <div class="stat-label">More community participation</div>
+                    <div class="stat-num font-outfit"><span class="counter-val" data-target="500">0</span>+</div>
+                    <div class="stat-label">Participants supported</div>
                 </div>
             </div>
             <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="300">
@@ -151,7 +216,7 @@
             </div>
             <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="400">
                 <div class="about-stat-card">
-                    <div class="stat-num font-outfit">100%</div>
+                    <div class="stat-num font-outfit"><span class="counter-val" data-target="100">0</span>%</div>
                     <div class="stat-label">Person-centred plans</div>
                 </div>
             </div>
@@ -159,75 +224,9 @@
     </div>
 </section>
 
-<!-- 6. Success Stories -->
-<section id="stories">
-    <div class="container text-center">
-        <span class="section-tag" data-aos="fade-up">Success Stories</span>
-        <h2 class="section-title text-teal" data-aos="fade-up" data-aos-delay="100">Real Participant Stories</h2>
-        <div class="swiper stories-swiper pb-5" data-aos="fade-up" data-aos-delay="200">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="testimonial-card text-start">
-                        <i class="fa-solid fa-quote-right quote-icon"></i>
-                        <div class="rating-stars mb-3"><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="text-muted mb-4">"Living in a SIL home through Maya has given me my freedom back.
-                            I cook my own meals and I'm learning new skills every week."</p>
-                        <div class="d-flex align-items-center gap-3">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
-                                alt="Marcus Taylor" class="client-avatar">
-                            <div>
-                                <h5 class="font-outfit text-teal m-0" style="font-size:1.1rem;">Marcus Taylor</h5>
-                                <span class="small text-muted">SIL Participant</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="testimonial-card text-start">
-                        <i class="fa-solid fa-quote-right quote-icon"></i>
-                        <div class="rating-stars mb-3"><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="text-muted mb-4">"The team understood exactly what my son needed. The change in his
-                            independence and happiness has been incredible to watch."</p>
-                        <div class="d-flex align-items-center gap-3">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80"
-                                alt="Elena Rostova" class="client-avatar">
-                            <div>
-                                <h5 class="font-outfit text-teal m-0" style="font-size:1.1rem;">Elena Rostova</h5>
-                                <span class="small text-muted">Parent</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="testimonial-card text-start">
-                        <i class="fa-solid fa-quote-right quote-icon"></i>
-                        <div class="rating-stars mb-3"><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="text-muted mb-4">"Patient, warm, and professional. My brother now travels independently
-                            and has joined local clubs. We couldn't be more grateful."</p>
-                        <div class="d-flex align-items-center gap-3">
-                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80"
-                                alt="Sarah Jenkins" class="client-avatar">
-                            <div>
-                                <h5 class="font-outfit text-teal m-0" style="font-size:1.1rem;">Sarah Jenkins</h5>
-                                <span class="small text-muted">Family Member</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </div>
-</section>
 
-<!-- 7. FAQs -->
-<section class="bg-light-section">
+<!-- 8. FAQs -->
+<section id="faqs">
     <div class="container">
         <div class="text-center">
             <span class="section-tag" data-aos="fade-up">Good to Know</span>
@@ -236,41 +235,35 @@
         <div class="row justify-content-center">
             <div class="col-lg-9">
                 <div class="accordion faq-accordion" id="faqAccordion" data-aos="fade-up">
+                    <?php
+                    $faqs = [
+                        ['Is SIL covered by my NDIS plan?', 'In most cases, yes. SIL is a funded support under the NDIS. We\'ll help you understand your funding and exactly what\'s included.', true],
+                        ['Can I choose my support workers?', 'Absolutely. We match you with workers based on your needs, interests, and personality &mdash; and you always have a say.', false],
+                        ['Do I have to live in shared accommodation?', 'Not at all. SIL can be delivered in your own home or in shared living arrangements &mdash; whatever suits you best.', false],
+                        ['How quickly can support start?', 'After your consultation and plan approval, support can often begin within 1&ndash;2 weeks, depending on your needs.', false],
+                        ['What if my needs change over time?', 'Your plan is reviewed regularly and is fully flexible. We scale support up or down as your situation evolves.', false],
+                        ['Is there a cost if I\'m not NDIS funded?', 'We offer private and alternative funding options too. Reach out and we\'ll walk you through what\'s available.', false],
+                    ];
+                    $i = 0;
+                    foreach ($faqs as $q): $i++; ?>
                     <div class="accordion-item">
-                        <h2 class="accordion-header"><button class="accordion-button" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#sf1">Is SIL covered by my NDIS plan?</button>
-                        </h2>
-                        <div id="sf1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">In most cases, yes. SIL is a funded support under the NDIS. We'll
-                                help you understand your funding and what's included.</div>
+                        <h2 class="accordion-header"><button
+                                class="accordion-button <?= $q[2] ? '' : 'collapsed' ?>" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#sf<?= $i ?>"><?= $q[0] ?></button></h2>
+                        <div id="sf<?= $i ?>" class="accordion-collapse collapse <?= $q[2] ? 'show' : '' ?>"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body"><?= $q[1] ?></div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#sf2">Can I choose my support workers?</button>
-                        </h2>
-                        <div id="sf2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">Absolutely. We match you with workers based on your needs,
-                                interests, and personality &mdash; and you always have a say.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#sf3">Do I have to live in shared
-                                accommodation?</button></h2>
-                        <div id="sf3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">Not at all. SIL can be delivered in your own home or in shared
-                                living arrangements &mdash; whatever suits you best.</div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- 8. Related Services -->
-<section id="related">
+<!-- 9. Related Services -->
+<section class="bg-light-section" id="related">
     <div class="container text-center">
         <span class="section-tag" data-aos="fade-up">You May Also Need</span>
         <h2 class="section-title text-teal" data-aos="fade-up" data-aos-delay="100">Related Services</h2>
@@ -289,7 +282,8 @@
                     <h4 class="text-teal font-outfit mb-3"><?= $r[1] ?></h4>
                     <p class="text-muted mb-4"><?= $r[2] ?></p>
                     <a href="service-detail.php"
-                        class="btn btn-outline-teal rounded-pill btn-sm px-4 fw-bold">Learn More</a>
+                        class="btn btn-outline-teal rounded-pill btn-sm px-4 fw-bold">Learn More <i
+                            class="fa-solid fa-arrow-right ms-1"></i></a>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -297,24 +291,70 @@
     </div>
 </section>
 
-<!-- 9. CTA -->
+
+
+<!-- 11. CTA Banner -->
 <section id="consult" class="cta-gradient-section text-white text-center">
     <div class="container" data-aos="zoom-in">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <h2 class="font-outfit fw-black mb-3 text-white" style="font-size: 2.8rem; line-height: 1.2;">Ready to
-                    Start Living More Independently?</h2>
-                <p class="lead mb-5 text-white-50">Book a free, no-obligation consultation with our care coordinators
-                    today.</p>
+                <h2 class="font-outfit mb-3 text-white" style="font-size: 2.8rem; line-height: 1.2;">Ready to Get the
+                    Support You Need?</h2>
+                <p class="lead mb-5 text-white-50">Our team is here to provide compassionate and professional support
+                    tailored to your needs.</p>
                 <div class="d-flex flex-wrap justify-content-center gap-3">
-                    <a href="contact.php" class="btn btn-coral text-white px-5 py-3 rounded-pill fw-bold fs-6">Book
-                        Consultation</a>
-                    <a href="contact.php" class="btn btn-outline-light px-5 py-3 rounded-pill fw-bold fs-6"><i
-                            class="fa-solid fa-phone me-2"></i>Contact Our Team</a>
+                    <a href="contact.php" class="btn btn-coral text-white px-5 py-3 rounded-pill fw-bold fs-6"><i
+                            class="fa-solid fa-comments me-2"></i>Contact Us</a>
+                    <a href="#enquiry" class="btn btn-outline-light px-5 py-3 rounded-pill fw-bold fs-6"><i
+                            class="fa-solid fa-calendar-check me-2"></i>Book a Consultation</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Animate the "Why Choose" counters when scrolled into view
+        const counters = document.querySelectorAll('.counter-val');
+        if (counters.length) {
+            const run = el => {
+                const target = +el.dataset.target;
+                let n = 0; const inc = Math.max(1, target / 60);
+                const tick = () => {
+                    n += inc;
+                    if (n < target) { el.textContent = Math.ceil(n); requestAnimationFrame(tick); }
+                    else el.textContent = target;
+                };
+                tick();
+            };
+            const obs = new IntersectionObserver((entries, o) => {
+                entries.forEach(e => { if (e.isIntersecting) { run(e.target); o.unobserve(e.target); } });
+            }, { threshold: 0.6 });
+            counters.forEach(c => obs.observe(c));
+        }
+
+        // Enquiry form
+        const form = document.getElementById('enquiryForm');
+        if (form) {
+            const card = form.closest('.enquiry-card');
+            const successBox = card.querySelector('.enq-success');
+            const submitText = card.querySelector('.enq-submit-text');
+            const submitLoading = card.querySelector('.enq-submit-loading');
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                form.classList.add('was-validated');
+                if (!form.checkValidity()) return;
+                submitText.classList.add('d-none');
+                submitLoading.classList.remove('d-none');
+                // Simulate sending (replace with a real fetch() to your endpoint)
+                setTimeout(() => {
+                    form.classList.add('d-none');
+                    successBox.classList.remove('d-none');
+                }, 1200);
+            });
+        }
+    });
+</script>
 
 <?php include "include/footer.php" ?>

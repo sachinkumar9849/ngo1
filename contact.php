@@ -67,7 +67,9 @@
         <div class="row g-5 align-items-start">
             <div class="col-lg-7" data-aos="fade-right">
                 <span class="section-tag">Send a Message</span>
-                <h2 class="text-teal font-outfit fw-black mb-4">We'd Love to Hear From You</h2>
+                <h2 class="text-teal font-outfit fw-black mb-3">We'd Love to Hear From You</h2>
+                <p class="text-muted mb-4"><strong class="text-coral">Delivering Service with Love</strong> means
+                    listening, caring, and responding to your needs. We'd love to hear from you.</p>
                 <div class="contact-form-wrap">
                     <form id="contactForm">
                         <div class="row g-3">

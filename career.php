@@ -88,9 +88,11 @@
             <span class="sep">/</span>
             <span class="current">Careers</span>
         </nav>
-        <h1 class="page-hero-title font-outfit" data-aos="fade-up" data-aos-delay="100">Join Our Mission</h1>
+        <h1 class="page-hero-title font-outfit" data-aos="fade-up" data-aos-delay="100">Join a Team Dedicated to
+            Delivering Service with Love</h1>
         <p class="page-hero-lead" data-aos="fade-up" data-aos-delay="200">
-            Build a career with purpose. Help us empower lives and strengthen communities &mdash; every single day.
+            Build a rewarding career with purpose &mdash; making a meaningful impact in people's lives, every single
+            day.
         </p>
         <a href="#open-positions" class="btn btn-coral text-white px-5 py-3 rounded-pill fw-bold mt-2"
             data-aos="fade-up" data-aos-delay="300">View Open Positions <i class="fa-solid fa-arrow-down ms-2"></i></a>

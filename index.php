@@ -16,8 +16,8 @@
                     <div class="row align-items-center h-100">
                         <div class="col-lg-9 col-xl-8 mx-auto text-center">
                             <div class="hero-centered" data-aos="fade-up" data-aos-duration="900">
-                                <span class="hero-badge"><i class="fa-solid fa-heart-pulse me-2"></i>Compassionate Care
-                                    Network</span>
+                                <span class="hero-badge"><i class="fa-solid fa-heart me-2"></i>Delivering Service with
+                                    Love</span>
                                 <h1 class="hero-headline font-outfit fw-black">Empowering Lives Through Compassionate
                                     Care</h1>
                                 <p class="hero-desc">We provide personalized support services that help individuals live
@@ -133,8 +133,11 @@
 <!-- 3. Why Choose Us Section -->
 <section id="why-choose-us" class="bg-light-section">
     <div class="container text-center">
-        <span class="section-tag" data-aos="fade-up">Why Maya</span>
+        <span class="section-tag" data-aos="fade-up">Why Choose Us</span>
         <h2 class="section-title text-teal" data-aos="fade-up" data-aos-delay="100">Our Pillars of Excellence</h2>
+        <p class="section-subtitle fw-semibold text-coral" data-aos="fade-up" data-aos-delay="150">
+            Delivering Service with Love, Dignity &amp; Respect.
+        </p>
         <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
             We believe that quality care starts with deep respect, professional standards, and personalized support
             tailored to your unique life goals.
@@ -848,6 +851,9 @@
     <div class="container" data-aos="zoom-in">
         <div class="row justify-content-center">
             <div class="col-lg-8">
+                <span class="section-tag mb-3 d-inline-block"
+                    style="background:rgba(255,255,255,.18); color:#fff;"><i class="fa-solid fa-heart me-2"></i>Delivering
+                    Service with Love</span>
                 <h2 class="font-outfit fw-black mb-3 text-white" style="font-size: 2.8rem; line-height: 1.2;">Ready to
                     Start Your Journey to Better Support?</h2>
                 <p class="lead mb-5 text-white-50">Speak to one of our Care Coordinators today. We help you customize a
